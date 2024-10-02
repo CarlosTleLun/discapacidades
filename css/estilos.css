@@ -1,0 +1,1169 @@
+@charset "UTF-8";
+/* CSS Document */
+:root {
+  --color1: rgb(219, 144, 0.5);
+  --color2: rgba(23, 180, 83, 0.877);
+  --color3: rgba(11, 194, 211, 0.623);
+  --fondo: #f2f2f2;
+  --titulos: 33px;
+  --margenes: 60px;
+  --espacios: 10px;
+  --espacios-contenido: 45px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "open sans";
+  background: var(--fondo);
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Preloader */
+.hidden {
+  overflow: hidden;
+}
+
+.centrado {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header*/
+header {
+  width: 100%;
+  height: 700px;
+  background: linear-gradient(
+      to bottom,
+      rgba(4, 125, 255, 0),
+      rgba(0, 255, 204, 0),
+      rgba(0, 255, 204, 0),
+      rgba(253, 253, 253, 0)
+    ),
+    url(../img/discapacidades.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 9999;
+  display: block;
+}
+#mantenimiento {
+  width: 100%;
+  height: 800px;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(201, 201, 201, 0.45)
+    ),
+    url(../img/mantenimiento.gif);
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  display: block;
+}
+@media (max-width: 768px) {
+  #mantenimiento {
+    height: 300px; /* Reducir la altura del contenedor */
+    background-size: cover; /* Cambia el tamaño de la imagen para que se ajuste mejor */
+  }
+}
+
+@media (max-width: 480px) {
+  #mantenimiento {
+    height: 300px; /* Aún más pequeña en pantallas muy pequeñas */
+    background-size: contain;
+  }
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav1 {
+  background: rgba(0, 97, 154, 0.364);
+  height: 80px;
+  color: #fff;
+}
+
+.nav2 {
+  background: var(--fondo);
+  height: 100px;
+  color: #000;
+}
+.logos {
+  backdrop-filter: blur(20px) saturate(120%);
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #ffffff20;
+  border-radius: 10px;
+  background: #ffffff28;
+}
+
+.contenedor-nav {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  height: inherit;
+  overflow: hidden;
+}
+.enlaces {
+  background: #ffffff28;
+  backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid #ffffff20;
+  border-radius: 10px;
+}
+
+nav .enlaces a {
+  display: inline-block;
+  padding: 15px 0;
+  margin-right: 17px;
+  font-size: 17px;
+  font-size: clamp(1em, 1.5vw, 1.1em);
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+  position: relative; /* Necesario para el ::after */
+}
+
+nav .enlaces a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #fbff00; /* Color del subrayado */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+nav .enlaces a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav .enlaces a:hover {
+  color: #002a77; /* Cambia el color del texto al hacer hover */
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.logo,
+.logo img {
+  height: 80px;
+}
+
+.icono {
+  display: none;
+  font-size: 24px;
+  padding: 23.5px 20px;
+}
+
+.textos {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.textos > h1 {
+  font-weight: bold;
+}
+
+.textos > h2 {
+  font-size: clamp(1em, 2vw, 2em);
+  color: #001b58;
+  font-weight: 300;
+}
+/* titulos*/
+.title {
+  color: #fcf7b1;
+  text-shadow: -1px -1px 0 #686868, 1px -1px 0 #686868, -1px 1px 0 #686868,
+    1px 1px 0 #686868;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: clamp(1em, 5vw, 5em);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(1em, 4vw, 4em); /* Ajusta el tamaño mínimo y máximo */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(
+      0.5em,
+      1vw,
+      2em
+    ); /* Ajusta el tamaño en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: clamp(
+      0.3em,
+      1vw,
+      1em
+    ); /* Ajusta aún más el tamaño para dispositivos pequeños */
+    white-space: normal; /* Permite que el texto se divida en varias líneas si es necesario */
+  }
+}
+
+.title2 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/*oculta ENP 5*/
+@media only screen and (max-width: 768px) {
+  .title2 {
+    display: none;
+  }
+}
+
+/* Main */
+
+.contenedor {
+  margin: auto;
+  padding: var(--margenes) 0;
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contenedor h3 {
+  font-size: var(--titulos);
+  color: var(--titulos);
+  margin-bottom: var(--espacios);
+}
+
+.contenedor p {
+  font-size: var(--subtitulos);
+  font-weight: 300;
+  color: var(--color1);
+}
+
+.after::after {
+  content: "";
+  display: block;
+  margin: auto;
+  margin-top: var(--espacios);
+  width: 100px;
+  height: 2px;
+  background: #006eff;
+  margin-bottom: var(--espacios-contenido);
+}
+
+.card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card1 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cardAct {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content-card {
+  width: 32%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: 420px;
+  margin-top: 20px; /* Espacio arriba */
+  margin-bottom: 20px; /* Espacio abajo */
+  border-radius: 5px;
+}
+.content-card1 {
+  width: 300%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: 400px;
+  margin-top: 20px; /* Espacio arriba */
+  margin-bottom: 20px; /* Espacio abajo */
+  border-radius: 5px;
+}
+.textoconsultasAct {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  padding: 0px; /* Ajusta el padding según tus necesidades */
+  margin-bottom: 20px; /* Espacio debajo del div */
+  margin-top: 20px;
+  border-radius: 5px;
+  height: auto; /* Ajusta la altura según el contenido */
+  overflow: visible; /* Asegura que el contenido no se corte */
+}
+
+.publics {
+  height: 80%;
+}
+
+.content-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content-card1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content-cardAct img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.texto-consultas {
+  height: 20%;
+  width: 100%;
+  padding: var(--espacios) 0;
+  margin-bottom: 10px;
+}
+.texto-consultasAct {
+  height: 20%;
+  width: 100%;
+  padding: var(--espacios) 0;
+  margin-bottom: 20px;
+}
+
+.about {
+  background: url(img/separador.jpg);
+  height: auto;
+}
+
+.actividades {
+  display: flex;
+  color: #93743a;
+  justify-content: space-between;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.caja-actividades {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+.caja-actividades > h4 {
+  margin-bottom: var(--espacios);
+}
+
+.caja-actividades > p {
+  text-align: center;
+}
+
+/* Footer */
+.footer-content {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que los elementos den un salto de línea */
+  justify-content: space-between; /* Distribuye los elementos a lo largo del footer */
+  align-items: center; /* Alinea los elementos verticalmente */
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.375)
+    ),
+    url(../img/footer.png);
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(255, 255, 255);
+  font-size: clamp(1em, 1.5vw, 1.5em);
+}
+
+.columna {
+  margin: 10px;
+  text-align: center;
+}
+
+.footimg-container {
+  text-align: center;
+}
+
+.footimg {
+  max-width: 200px; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Media query para ajustar el diseño en pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-wrap: wrap; /* Permite que los elementos den un salto de línea en pantallas más pequeñas */
+    justify-content: center; /* Centra los elementos en pantallas más pequeñas */
+  }
+
+  .columna {
+    flex-basis: 50%; /* Establece que cada columna ocupe el 50% del ancho disponible en pantallas más pequeñas */
+  }
+}
+
+.marca-logo {
+  width: 40%;
+  margin: auto;
+  margin-bottom: var(--espacios);
+}
+
+.marca-logo img {
+  width: 100%;
+}
+
+.iconos {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.fas {
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: var(--espacios);
+  display: inline-block;
+}
+
+@media screen and (max-width: 700px) {
+  .nav2 {
+    color: #fff;
+  }
+
+  .icono {
+    display: block;
+    cursor: pointer;
+  }
+
+  .enlaces {
+    position: fixed;
+    top: 80px;
+    background: #466da186;
+    backdrop-filter: blur(20px);
+    left: 0;
+    height: 100%;
+    transition: 1s;
+    width: 0;
+    overflow: hidden;
+    align-items: center;
+  }
+
+  .enlaces a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+    background: #474747a9;
+    color: #000000;
+    align-items: center;
+  }
+
+  .textos > h1 {
+    font-size: 70px;
+  }
+  .textos > h2 {
+    font-size: 35px;
+  }
+
+  .content-card {
+    width: 48%;
+    margin-bottom: var(--margenes);
+  }
+
+  :root {
+    --margenes: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :root {
+    --espacios-contenido: 25px;
+  }
+
+  .content-card {
+    width: 90%;
+  }
+  .content-card {
+    opacity: 0;
+    transition: opacity 0.9s ease; /* Transición más suave */
+  }
+
+  .caja-actividades {
+    width: 90%;
+    margin-bottom: var(--margenes);
+  }
+
+  .cont-work {
+    width: 85%;
+  }
+
+  .marca-logo {
+    width: 80%;
+  }
+
+  .iconos {
+    margin: auto;
+  }
+}
+
+#uno,
+#tres {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(0, 79, 248, 0.205)
+    ),
+    url(../img/fondoDIV.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  #uno,
+  #tres {
+    background-size: auto; /* Ajusta el tamaño de la imagen */
+    background-position: top; /* Posiciona la imagen en la parte superior */
+    background-repeat: no-repeat; /* Asegúrate de que no se repita en móviles */
+  }
+}
+
+#name {
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#name2 {
+  color: #ffffff;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 95%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(
+      to bottom,
+      rgba(248, 71, 71, 0.6),
+      rgba(245, 168, 4, 0.6),
+      rgba(251, 255, 2, 0.8),
+      rgba(7, 236, 26, 0.6),
+      rgba(6, 69, 207, 0.8)
+    ),
+    url(../img/modal2.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  max-width: 95%; /* Ancho máximo del contenido */
+  max-height: 95%; /* Altura máxima del contenido */
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  overflow-y: auto;
+  font-size: clamp(1em, 1.5vw, 1.3em);
+}
+
+#modalC {
+  background: linear-gradient(
+      to top,
+      rgba(37, 37, 37, 0.9),
+      rgba(179, 54, 228, 0.5),
+      rgba(90, 8, 158, 0.5),
+      rgba(37, 37, 37, 0.9)
+    ),
+    url(../img/modalC2.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+  width: 700px;
+  max-width: 95%; /* Ancho máximo del contenido */
+  max-height: 95%;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color: #feffff;
+  font-size: clamp(1em, 1.5vw, 1.3em);
+}
+#modalS {
+  background: linear-gradient(
+      to top,
+      rgba(153, 153, 153, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url(../img/seminario1.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  width: 700px;
+  max-width: 95%;
+  max-height: 95%;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color: #000000;
+  font-size: clamp(1em, 1.5vw, 1.3em);
+}
+
+.modal-footer {
+  text-align: right;
+}
+
+.modal-trigger {
+  cursor: pointer;
+}
+.modal-content {
+  position: relative; /* Añade posición relativa para que el botón de cierre sea posicionado correctamente */
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 35px;
+  color: #0054fd;
+  font-weight: bold;
+}
+.modal-close:hover,
+.modal-close:focus {
+  color: #0a9c42;
+  text-decoration: none;
+  cursor: pointer;
+}
+#link {
+  color: rgb(202, 27, 27);
+}
+i {
+  color: rgb(250, 0, 0);
+}
+#azul {
+  color: #001b58;
+}
+/* Modal de los creditos */
+.modalCredits {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.close {
+  color: #f1f507;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: -3px;
+}
+
+.close:hover,
+.close:focus {
+  color: #07bef5;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Agrega la clase smooth-transition para aplicar la transición */
+.smooth-transition {
+  transition: opacity 1.5s ease-in-out; /* Transición suave de opacidad durante 0.5 segundos */
+}
+
+/* Estilos para el botón */
+.button {
+  display: inline-flex;
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 5px 15px; /* Ajusta el espacio interior del botón */
+  background: linear-gradient(
+    to left,
+    rgba(248, 71, 71, 0.8),
+    rgba(245, 168, 4, 0.8),
+    rgba(245, 248, 51, 0.8),
+    rgba(7, 236, 26, 0.8),
+    rgba(6, 69, 207, 0.8),
+    rgba(62, 42, 110, 0.8)
+  );
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: none; /* Quita el borde del botón */
+  border-radius: 5px; /* Añade bordes redondeados al botón */
+  text-decoration: none; /* Quita la subrayado del enlace */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  font-weight: bold;
+}
+
+/* Estilos para el icono */
+.button i {
+  margin-right: 2px; /* Añade un espacio a la derecha del icono */
+  color: #ec0909;
+}
+
+/* Estilos de hover para el botón */
+.button:hover {
+  background: linear-gradient(
+    to right,
+    rgba(248, 71, 71, 0.5),
+    rgba(245, 168, 4, 0.5),
+    rgba(245, 248, 51, 0.5),
+    rgba(7, 236, 26, 0.5),
+    rgba(6, 69, 207, 0.5),
+    rgba(62, 42, 110, 0.5)
+  ); /* Cambia el color de fondo al pasar el mouse */
+  color: #000;
+}
+
+/*justificar modal*/
+.just {
+  text-align: justify;
+}
+#icon3 {
+  color: #fbff05;
+  margin-right: 10px;
+  align-items: center;
+}
+.mail {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+#morado-rosa {
+  /*para conversatorio */
+  background: linear-gradient(
+      to top,
+      rgba(175, 175, 175, 0.2),
+      rgba(247, 247, 247, 0.2)
+    ),
+    url(../img/morado.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 9999;
+}
+/*Para la letra de los creditos*/
+.credits {
+  color: #fafa3e;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.credits:hover {
+  color: #28e7be;
+}
+.modal-Credits {
+  background: linear-gradient(
+      to bottom,
+      rgba(2, 128, 255, 0.994),
+      rgba(0, 0, 0, 0.862)
+    ),
+    url(../img/modalCredits.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+  width: 700px;
+  max-width: 97%; /* Ancho máximo del contenido */
+  max-height: 95%; /* Altura máxima del contenido */
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  overflow-y: auto;
+  font-size: clamp(1em, 1.5vw, 1.3em);
+  z-index: 9999;
+}
+#credits-modal h2 {
+  background-color: #000cad;
+  color: rgb(255, 250, 250);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+#credits-modal p {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+.modal-Credits {
+  padding: 20px;
+}
+
+.close {
+  color: #eeff00;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(2, 230, 238);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-section.start {
+  background-color: rgb(102, 144, 233, 0.9); /* Color de fondo para el inicio */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-section.end {
+  background-color: rgba(245, 228, 74, 0.9); /* Color de fondo para el final */
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Estilos del carrusel */
+.carrusel {
+  width: 80%;
+  max-width: 600px; /* Ajusta este valor según tus necesidades */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.imagen {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.imagen img {
+  width: 100%;
+  height: auto;
+}
+
+.flecha-izquierda,
+.flecha-derecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.flecha-izquierda {
+  left: 10px;
+}
+
+.flecha-derecha {
+  right: 10px;
+}
+/* --------ligas de seminarios */
+.footer-links {
+  background-color: #050049; /* Color de fondo ligero */
+  padding: 5px;
+  text-align: center;
+}
+.footer-links a {
+  color: #fcfcfc;
+  margin: 0 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+.footer-links i.material-icons {
+  margin-right: 5px;
+}
+#icon4 {
+  color: #057aff;
+  margin-right: 10px;
+  align-items: center;
+}
+.footer-links a:hover {
+  color: rgb(
+    246,
+    250,
+    14
+  ); /* Cambia el color del texto al hacer hover, opcional */
+}
+
+.footer-links i {
+  transition: transform 0.9s;
+}
+
+.footer-links a:hover i {
+  transform: rotate(360deg); /* Gira el icono 180 grados */
+  color: rgb(246, 250, 14);
+}
+
+.negritas {
+  font-weight: bold;
+}
+
+/* Div de textos */
+#cierre {
+  width: 60%; /* Hace que el div ocupe el 40% del ancho de la pantalla */
+  margin: 0 auto; /* Centra el div horizontalmente */
+  text-align: justify; /* Centra el texto dentro del div */
+  font-family: "Arial", sans-serif; /* Fuente para el texto */
+  font-size: clamp(1.5em, 1vw, 2em);
+  color: #333; /* Color del texto */
+  padding: 20px 0; /* Espaciado interno arriba y abajo */
+}
+
+.linea {
+  border: 0;
+  height: 2px;
+  background-color: #dbd801; /* Color de la línea */
+  margin: 20px 0; /* Espaciado entre la línea y el texto */
+}
+/* Oculta letras del encabezado */
+@media (max-width: 800px) {
+  .ocultar-en-movil {
+    display: none;
+  }
+}
+.sub-titulos {
+  text-align: center;
+}
+/* Capa oscura de fondo */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  z-index: 1; /* Por encima del contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Oculta el contenido principal mientras carga */
+#content {
+  display: none;
+}
+
+.loader {
+  width: 10%;
+  height: 100px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999; /* Por encima de la capa oscura */
+}
+
+.bar {
+  width: 100%;
+  height: 20px;
+  background-color: #1294eb;
+  animation: load 1s infinite;
+  margin-bottom: 20px; /* Espacio entre barras */
+}
+
+.bar:last-child {
+  margin-bottom: 0; /* Elimina el margen inferior de la última barra */
+}
+
+.bar:nth-child(2) {
+  background-color: #f87566;
+  animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+  background-color: #f3f978;
+  animation-delay: 0.4s;
+}
+
+.bar:nth-child(4) {
+  background-color: #2ecc71;
+  animation-delay: 0.6s;
+}
+
+@keyframes load {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+/* Oculta el loader una vez que se completa la simulación */
+.hidden {
+  display: none;
+}
+
+
+/* Estilo para el párrafo y el icono */
+.mail,
+.mail i {
+  color: white;
+}
+
+/* Estilo para el enlace */
+.mail a {
+  color: white;
+  text-decoration: none; /* Quita el subrayado predeterminado */
+  position: relative; /* Necesario para el ::after */
+}
+
+/* Efecto hover animado del subrayado */
+.mail a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px; /* Ajusta la posición del subrayado */
+  height: 2px;
+  background-color: #ffcc00; /* Color del subrayado */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.mail a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Efecto hover para el color del texto */
+.mail a:hover {
+  color: #fbff00; /* Cambia a este color al hacer hover */
+}
+#comite {
+  background-image: url(../img/portada.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center; /* Para que el texto esté centrado en móviles */
+}
+
+#comite h2,
+#comite h3 {
+  font-size: 2rem;
+}
+
+#comite p {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #comite h2 {
+    font-size: 1.5rem;
+  }
+
+  #comite h3 {
+    font-size: 1.2rem;
+  }
+
+  #comite p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  #comite {
+    padding: 10px; /* Menos espacio alrededor del contenido en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  #comite h2 {
+    font-size: 1.2rem;
+  }
+
+  #comite h3 {
+    font-size: 1rem;
+  }
+
+  #comite p {
+    font-size: 0.8rem;
+  }
+}
+/* Estilo base para los divs de creditos */
+.credito {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 100%; /* El div ocupará el 80% del ancho */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Primer div: fondo azul claro */
+.credito:nth-of-type(1),
+.credito:nth-of-type(3),
+.credito:nth-of-type(5) {
+  background-color: #3b98efaf; /* Azul claro */
+}
+
+/* Segundo div: fondo amarillo claro */
+.credito:nth-of-type(2),
+.credito:nth-of-type(4) {
+  background-color: #fafa779e; /* Amarillo claro */
+}
